@@ -19,7 +19,7 @@ function Work() {
       title: "Dceetechbro",
       description:
         "A product-focused portfolio and technology platform built to showcase frontend engineering, selected projects, technical capabilities, and the way Dceetechbro approaches digital products.",
-      tags: ["React", "JavaScript", "Frontend", "Firebase"],
+      tags: ["React", "JavaScript", "Frontend", "Firebase", "Vercel email endpoint", "Responsive Web", "Resend email service"],
       type: "Portfolio",
       theme: "light",
       url: null,

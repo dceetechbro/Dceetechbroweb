@@ -61,19 +61,43 @@ function HireTalent() {
       details: formData.get('details').trim(),
     };
 
-    try {
-      await submitTalentRequest(talentRequest);
+try {
+  await submitTalentRequest(talentRequest);
 
-      setSubmitStatus('success');
-      form.reset();
-    } catch (error) {
-      console.error('Talent request submission failed:', error);
+  try {
+    const emailResponse = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        type: 'talent',
+        ...talentRequest,
+      }),
+    });
 
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
+    if (!emailResponse.ok) {
+      console.error(
+        'Talent request was saved, but email notification failed.'
+      );
     }
-  };
+  } catch (emailError) {
+    console.error(
+      'Talent request was saved, but email notification failed:',
+      emailError
+    );
+  }
+
+  setSubmitStatus('success');
+  form.reset();
+} catch (error) {
+  console.error('Talent request submission failed:', error);
+
+  setSubmitStatus('error');
+} finally {
+  setIsSubmitting(false);
+}
+};
 
   return (
     <section

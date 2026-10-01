@@ -32,17 +32,41 @@ function BuildSolution() {
     };
 
     try {
-      await submitProjectEnquiry(enquiry);
+  await submitProjectEnquiry(enquiry);
 
-      setSubmitStatus('success');
-      form.reset();
-    } catch (error) {
-      console.error('Project enquiry submission failed:', error);
+  try {
+    const emailResponse = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        type: 'project',
+        ...enquiry,
+      }),
+    });
 
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
+    if (!emailResponse.ok) {
+      console.error(
+        'Project enquiry was saved, but email notification failed.'
+      );
     }
+  } catch (emailError) {
+    console.error(
+      'Project enquiry was saved, but email notification failed:',
+      emailError
+    );
+  }
+
+  setSubmitStatus('success');
+  form.reset();
+} catch (error) {
+  console.error('Project enquiry submission failed:', error);
+
+  setSubmitStatus('error');
+} finally {
+  setIsSubmitting(false);
+}
   };
 
   return (
