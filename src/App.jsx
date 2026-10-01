@@ -2,12 +2,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Navbar from './components/navigation/Navbar';
 
-import Hero from './components/sections/Hero/Hero';
-import Paths from './components/sections/Paths/Paths';
-import Capabilities from './components/sections/Capabilities/Capabilities';
-import Work from './components/sections/Work/Work';
+import Hero from "./components/sections/hero/Hero";
+import Paths from "./components/sections/paths/Paths";
+import Capabilities from "./components/sections/capabilities/Capabilities";
+import Work from "./components/sections/work/Work";
 import WhyDceetechbro from './components/sections/WhyDceetechbro/WhyDceetechbro';
-import Contact from './components/sections/Contact/Contact';
+import Contact from "./components/sections/contact/Contact";
 import BuildSolution from './components/sections/BuildSolution/BuildSolution';
 import HireTalent from './components/sections/HireTalent/HireTalent';
 
