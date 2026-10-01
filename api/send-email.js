@@ -32,6 +32,13 @@ export default async function handler(req, res) {
       });
     }
 
+    if (type !== 'project' && type !== 'talent') {
+      return res.status(400).json({
+        success: false,
+        message: 'Invalid request type',
+      });
+    }
+
     const isProject = type === 'project';
 
     const subject = isProject
@@ -61,29 +68,63 @@ export default async function handler(req, res) {
         <p>${details || 'Not provided'}</p>
       `;
 
-    await resend.emails.send({
-      from: 'Dceetechbro <onboarding@resend.dev>',
-      to: ['dceetechbro@gmail.com'],
-      subject,
-      html: internalEmail,
-    });
+    // Send internal notification
+    const { data: internalData, error: internalError } =
+      await resend.emails.send({
+        from: 'Dceetechbro <onboarding@resend.dev>',
+        to: ['dceetechbro@gmail.com'],
+        subject,
+        html: internalEmail,
+      });
 
-    await resend.emails.send({
-      from: 'Dceetechbro <onboarding@resend.dev>',
-      to: [email],
-      subject: 'We received your request — Dceetechbro',
-      html: `
-        <h2>Thanks for reaching out to Dceetechbro, ${name}.</h2>
-        <p>We've received your request and our team will review it shortly.</p>
-        <p>We'll get back to you using the contact information you provided.</p>
-        <br>
-        <p>— Dceetechbro</p>
-      `,
-    });
+    if (internalError) {
+      console.error('Internal email error:', internalError);
+
+      return res.status(500).json({
+        success: false,
+        message: 'Unable to send internal email notification',
+        error: internalError.message,
+      });
+    }
+
+    console.log('Internal email sent:', internalData);
+
+    // Send visitor confirmation
+    const { data: visitorData, error: visitorError } =
+      await resend.emails.send({
+        from: 'Dceetechbro <onboarding@resend.dev>',
+        to: [email],
+        subject: 'We received your request — Dceetechbro',
+        html: `
+          <h2>Thanks for reaching out to Dceetechbro, ${name}.</h2>
+
+          <p>We've received your request and our team will review it shortly.</p>
+
+          <p>We'll get back to you using the contact information you provided.</p>
+
+          <br>
+
+          <p>— Dceetechbro</p>
+        `,
+      });
+
+    if (visitorError) {
+      console.error('Visitor email error:', visitorError);
+
+      return res.status(500).json({
+        success: false,
+        message: 'Internal notification sent, but visitor confirmation failed',
+        error: visitorError.message,
+      });
+    }
+
+    console.log('Visitor email sent:', visitorData);
 
     return res.status(200).json({
       success: true,
       message: 'Emails sent successfully',
+      internalEmailId: internalData?.id,
+      visitorEmailId: visitorData?.id,
     });
   } catch (error) {
     console.error('Email error:', error);
