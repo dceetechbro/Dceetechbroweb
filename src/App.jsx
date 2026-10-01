@@ -14,7 +14,7 @@ import HireTalent from './components/sections/HireTalent/HireTalent';
 import AdminLogin from './admin/pages/AdminLogin/AdminLogin';
 import ProtectedRoute from './admin/components/ProtectedRoute';
 import AdminDashboard from './admin/pages/AdminDashboard/AdminDashboard';
-import Footer from './components/layout/Footer/Footer';
+import Footer from "./components/layout/footer/footer";
 
 function Home() {
   return (
