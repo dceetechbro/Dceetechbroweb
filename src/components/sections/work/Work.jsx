@@ -22,7 +22,7 @@ function Work() {
       tags: ["React", "JavaScript", "Frontend", "Firebase", "Vercel email endpoint", "Responsive Web", "Resend email service"],
       type: "Portfolio",
       theme: "light",
-      url: null,
+      url: "https://dceetechbroweb-4w8p-phi.vercel.app",
     },
     {
       number: "03",
