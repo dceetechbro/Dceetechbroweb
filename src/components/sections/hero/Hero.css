@@ -1,0 +1,527 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  padding-block: 64px;
+}
+
+.hero__container {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.85fr);
+  align-items: center;
+  gap: clamp(40px, 6vw, 96px);
+}
+
+.hero__content {
+  max-width: 760px;
+}
+
+.hero__eyebrow {
+  margin-bottom: 24px;
+  color: var(--color-text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero__title {
+  max-width: 760px;
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -0.065em;
+}
+
+.hero__title span {
+  display: block;
+  color: var(--color-text-secondary);
+}
+
+.hero__description {
+  max-width: 620px;
+  margin-top: 32px;
+  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.7;
+}
+
+
+/* ========================================
+   HERO ACTIONS
+======================================== */
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 40px;
+}
+
+.hero__button {
+  min-height: 54px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 0 24px;
+
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  font-size: 0.92rem;
+  font-weight: 700;
+
+  color: inherit;
+  text-decoration: none !important;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-fast),
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.hero__button:link,
+.hero__button:visited,
+.hero__button:hover,
+.hero__button:active,
+.hero__button:focus {
+  text-decoration: none !important;
+}
+
+.hero__button span {
+  display: inline-flex;
+  font-size: 1.1rem;
+  line-height: 1;
+
+  transition: transform var(--transition-fast);
+}
+
+.hero__button:hover {
+  transform: translateY(-3px);
+}
+
+.hero__button:hover span {
+  transform: translate(3px, -3px);
+}
+
+
+/* ========================================
+   PRIMARY CTA
+======================================== */
+
+.hero__button--primary {
+  background: var(--color-accent);
+  color: #ffffff;
+
+  border-color: var(--color-accent);
+
+  box-shadow:
+    0 10px 30px rgb(0 150 167 / 0.22);
+}
+
+.hero__button--primary:hover,
+.hero__button--primary:focus-visible {
+  background: #00aabd;
+  color: #ffffff;
+
+  border-color: #00aabd;
+
+  box-shadow:
+    0 14px 36px rgb(0 150 167 / 0.32);
+}
+
+
+/* ========================================
+   SECONDARY CTA
+======================================== */
+
+.hero__button--secondary {
+  background: rgb(255 255 255 / 0.02);
+  color: var(--color-text-primary);
+
+  border-color: rgb(0 150 167 / 0.45);
+}
+
+.hero__button--secondary:hover,
+.hero__button--secondary:focus-visible {
+  background: rgb(0 150 167 / 0.08);
+  color: #ffffff;
+
+  border-color: var(--color-accent);
+
+  box-shadow:
+    0 10px 30px rgb(0 150 167 / 0.12);
+}
+
+
+/* ========================================
+   HERO VISUAL
+======================================== */
+
+.hero__visual {
+  position: relative;
+
+  width: 100%;
+  max-width: 520px;
+
+  min-height: 520px;
+
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* ========================================
+   MAIN VISUAL CARD
+======================================== */
+
+.hero__visual-card--main {
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: min(100%, 460px);
+  aspect-ratio: 1 / 1;
+
+  /*
+    Extra bottom padding gives the BUILD / HIRE / GROW
+    row enough breathing room so the availability badge
+    does not visually interfere with it.
+  */
+  padding: clamp(28px, 4vw, 44px);
+  padding-bottom: clamp(44px, 5vw, 56px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background: var(--color-surface-dark);
+  color: var(--color-text-inverse);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow-md);
+
+  transform: translateX(-50%) rotate(-3deg);
+
+  z-index: 1;
+}
+
+.hero__visual-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.hero__visual-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.92;
+
+  font-weight: 700;
+  letter-spacing: -0.06em;
+}
+
+.hero__visual-heading span:nth-child(2) {
+  color: #777;
+  font-size: 0.6em;
+}
+
+.hero__visual-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding-top: 20px;
+
+  color: var(--color-text-muted);
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+
+/* ========================================
+   AVAILABLE FOR PROJECTS
+======================================== */
+
+.hero__visual-card--small {
+  position: absolute;
+
+  /*
+    Keep the badge at the bottom-right.
+    It remains visually attached to the card area,
+    but sits below the card's content.
+  */
+  right: 0;
+  bottom: 0;
+
+  min-height: 44px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 0 15px;
+
+  border: 1px solid rgb(0 150 167 / 0.35);
+  border-radius: 999px;
+
+  background: #07131d;
+  color: var(--color-text-primary);
+
+  box-shadow:
+    0 10px 28px rgb(0 0 0 / 0.3),
+    0 0 0 1px rgb(0 150 167 / 0.05);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  line-height: 1;
+
+  white-space: nowrap;
+
+  text-decoration: none !important;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition:
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.hero__visual-card--small:link,
+.hero__visual-card--small:visited,
+.hero__visual-card--active,
+.hero__visual-card--focus {
+  color: var(--color-text-primary);
+  text-decoration: none !important;
+}
+
+.hero__visual-card--small:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--color-accent);
+
+  background: #0a1b27;
+
+  box-shadow:
+    0 14px 34px rgb(0 0 0 / 0.35),
+    0 0 18px rgb(0 150 167 / 0.14);
+}
+
+
+/* ========================================
+   STATUS DOT
+======================================== */
+
+.hero__status-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--color-accent);
+
+  box-shadow:
+    0 0 0 3px rgb(0 150 167 / 0.12),
+    0 0 8px rgb(0 150 167 / 0.4);
+}
+
+
+/* ========================================
+   LAPTOP
+======================================== */
+
+@media (max-width: 1100px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero__container {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(320px, 0.8fr);
+
+    gap: 40px;
+  }
+
+  .hero__visual {
+    max-width: 440px;
+    min-height: 460px;
+  }
+
+  .hero__visual-card--main {
+    width: min(100%, 400px);
+
+    padding-bottom: 48px;
+  }
+
+  .hero__visual-card--small {
+    right: 0;
+    bottom: 0;
+  }
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+  .hero {
+    padding-block: 56px 72px;
+  }
+
+  .hero__container {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .hero__content {
+    max-width: 800px;
+  }
+
+  .hero__visual {
+    width: min(100%, 560px);
+    min-height: 510px;
+  }
+
+  .hero__visual-card--main {
+    width: min(100%, 440px);
+
+    padding-bottom: 52px;
+  }
+
+  .hero__visual-card--small {
+    right: 8px;
+    bottom: 0;
+  }
+}
+
+
+/* ========================================
+   PHONES
+======================================== */
+
+@media (max-width: 600px) {
+  .hero {
+    padding-block: 44px 56px;
+  }
+
+  .hero__title {
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+  }
+
+  .hero__description {
+    margin-top: 24px;
+  }
+
+  .hero__actions {
+    margin-top: 32px;
+    gap: 10px;
+  }
+
+  .hero__button {
+    width: 100%;
+    min-height: 54px;
+  }
+
+  .hero__visual {
+    width: 100%;
+    min-height: 420px;
+  }
+
+  .hero__visual-card--main {
+    width: min(100%, 360px);
+
+    padding: 24px;
+    padding-bottom: 42px;
+
+    border-radius: var(--radius-lg);
+  }
+
+  .hero__visual-heading {
+    font-size: clamp(2.4rem, 12vw, 4rem);
+  }
+
+  .hero__visual-card--small {
+    right: 4px;
+    bottom: 0;
+
+    min-height: 38px;
+
+    padding: 0 12px;
+
+    gap: 6px;
+
+    font-size: 0.6rem;
+  }
+
+  .hero__status-dot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+
+/* ========================================
+   SMALL PHONES
+======================================== */
+
+@media (max-width: 360px) {
+  .hero {
+    padding-block: 36px 48px;
+  }
+
+  .hero__title {
+    font-size: 2.65rem;
+  }
+
+  .hero__visual {
+    min-height: 380px;
+  }
+
+  .hero__visual-card--main {
+    width: min(100%, 320px);
+
+    padding: 20px;
+    padding-bottom: 38px;
+  }
+
+  .hero__visual-card--small {
+    right: 2px;
+    bottom: 0;
+
+    min-height: 36px;
+
+    padding: 0 10px;
+
+    font-size: 0.56rem;
+  }
+}

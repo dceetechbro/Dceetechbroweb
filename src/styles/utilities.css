@@ -1,0 +1,19 @@
+.container {
+  width: min(
+    calc(100% - (var(--page-padding) * 2)),
+    var(--container-width)
+  );
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: 96px;
+}
+
+.section-header {
+  max-width: 720px;
+}
+
+.text-muted {
+  color: var(--color-text-secondary);
+}

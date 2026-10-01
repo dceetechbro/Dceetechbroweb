@@ -1,0 +1,29 @@
+@media (max-width: 1024px) {
+  :root {
+    --page-padding: 20px;
+  }
+
+  .section {
+    padding-block: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding: 18px;
+  }
+
+  .section {
+    padding-block: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --page-padding: 16px;
+  }
+
+  .section {
+    padding-block: 52px;
+  }
+}

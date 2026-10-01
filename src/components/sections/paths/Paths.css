@@ -1,0 +1,249 @@
+.paths {
+  border-top: 1px solid var(--color-border);
+}
+
+.paths__header {
+  max-width: 760px;
+  margin-bottom: 56px;
+}
+
+.paths__eyebrow {
+  margin-bottom: 20px;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.paths__title {
+  max-width: 700px;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 0.98;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+}
+
+.paths__title span {
+  display: block;
+  color: var(--color-text-secondary);
+}
+
+.paths__intro {
+  max-width: 620px;
+  margin-top: 24px;
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.paths__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Shared card */
+.path-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 560px;
+  padding: clamp(28px, 4vw, 48px);
+  overflow: hidden;
+  border-radius: var(--radius-xl);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.path-card:hover,
+.path-card:visited,
+.path-card:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.path-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.path-card__number {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.path-card__arrow {
+  width: 48px;
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.15rem;
+  transition:
+    transform var(--transition-base),
+    background-color var(--transition-base);
+}
+
+.path-card:hover .path-card__arrow {
+  transform: translate(3px, -3px);
+}
+
+.path-card__content {
+  max-width: 560px;
+}
+
+.path-card__label {
+  margin-bottom: 18px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.path-card__title {
+  max-width: 520px;
+  font-size: clamp(2rem, 3.2vw, 3.4rem);
+  line-height: 1;
+  font-weight: 650;
+  letter-spacing: -0.055em;
+}
+
+.path-card__description {
+  max-width: 500px;
+  margin-top: 24px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.path-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 24px;
+  border-top: 1px solid currentColor;
+  opacity: 0.7;
+}
+
+.path-card__footer span {
+  font-size: 0.68rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Dark card */
+.path-card--dark {
+  background: var(--color-surface-dark);
+  color: var(--color-text-inverse);
+}
+
+.path-card--dark .path-card__arrow {
+  background: rgb(255 255 255 / 0.1);
+}
+
+.path-card--dark:hover .path-card__arrow {
+  background: rgb(255 255 255 / 0.18);
+}
+
+.path-card--dark .path-card__description {
+  color: #b0b0b0;
+}
+
+/* Light card */
+.path-card--light {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+}
+
+.path-card--light .path-card__arrow {
+  background: #f0f0ec;
+}
+
+.path-card--light:hover .path-card__arrow {
+  background: #e5e5e0;
+}
+
+.path-card--light .path-card__description {
+  color: var(--color-text-secondary);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .paths__header {
+    margin-bottom: 40px;
+  }
+
+  .paths__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .path-card {
+    min-height: 480px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .paths__title {
+    font-size: clamp(2.6rem, 12vw, 4rem);
+  }
+
+  .paths__intro {
+    margin-top: 20px;
+    font-size: 0.98rem;
+  }
+
+  .paths__grid {
+    gap: 14px;
+  }
+
+  .path-card {
+    min-height: 440px;
+    padding: 24px;
+    border-radius: var(--radius-lg);
+  }
+
+  .path-card__arrow {
+    width: 42px;
+    height: 42px;
+  }
+
+  .path-card__title {
+    font-size: clamp(2rem, 9vw, 2.8rem);
+  }
+
+  .path-card__description {
+    margin-top: 20px;
+    font-size: 0.92rem;
+  }
+
+  .path-card__footer {
+    gap: 6px;
+    padding-top: 18px;
+  }
+
+  .path-card__footer span {
+    font-size: 0.6rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 360px) {
+  .path-card {
+    min-height: 420px;
+    padding: 20px;
+  }
+
+  .path-card__title {
+    font-size: 1.9rem;
+  }
+}
