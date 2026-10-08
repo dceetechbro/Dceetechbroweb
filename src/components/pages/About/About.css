@@ -369,7 +369,7 @@
   .about-page__visual {
     width: 100%;
 
-    opacity: 0.13;
+    opacity: 0.25;
   }
 
   .about-page__portrait {
@@ -461,7 +461,7 @@
     width: 100%;
     height: 100svh;
 
-    opacity: 0.1;
+    opacity: 0.22;
   }
 
   .about-page__portrait {
