@@ -11,6 +11,7 @@ import Contact from "./components/sections/contact/Contact";
 import BuildSolution from './components/sections/BuildSolution/BuildSolution';
 import HireTalent from './components/sections/HireTalent/HireTalent';
 
+import About from './components/pages/About/About';
 import AdminLogin from './admin/pages/AdminLogin/AdminLogin';
 import ProtectedRoute from './admin/components/ProtectedRoute';
 import AdminDashboard from './admin/pages/AdminDashboard/AdminDashboard';
@@ -42,6 +43,9 @@ function App() {
       <Routes>
         {/* Main website */}
         <Route path="/" element={<Home />} />
+
+        {/* About page */}
+        <Route path="/about" element={<About />} />
 
         {/* Admin login */}
         <Route

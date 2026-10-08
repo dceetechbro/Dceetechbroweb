@@ -1,0 +1,788 @@
+* {
+  box-sizing: border-box;
+}
+
+.about-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+
+  background: #000912;
+  color: #ffffff;
+
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   STICKY PORTRAIT
+   ========================================================= */
+
+.about-page__visual {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 42%;
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.about-page__portrait {
+  position: relative;
+
+  width: min(30vw, 440px);
+  height: min(72vh, 680px);
+
+  overflow: hidden;
+}
+
+.about-page__portrait::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      to right,
+      #000912 0%,
+      transparent 18%,
+      transparent 82%,
+      #000912 100%
+    ),
+    linear-gradient(
+      to bottom,
+      #000912 0%,
+      transparent 12%,
+      transparent 88%,
+      #000912 100%
+    );
+}
+
+.about-page__portrait img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  filter:
+    saturate(0.8)
+    contrast(1.05);
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 12%,
+      #000 88%,
+      transparent 100%
+    );
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #000 12%,
+      #000 88%,
+      transparent 100%
+    );
+}
+
+/* =========================================================
+   CONTENT COLUMN
+   ========================================================= */
+
+.about-page__content {
+  position: relative;
+  z-index: 2;
+
+  width: 58%;
+
+  margin-left: 42%;
+
+  padding-left: clamp(35px, 5vw, 90px);
+  padding-right: clamp(35px, 7vw, 120px);
+}
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.about-section {
+  width: 100%;
+  max-width: 900px;
+
+  min-height: 100vh;
+
+  display: grid;
+
+  grid-template-columns: 45px minmax(0, 680px);
+
+  gap: clamp(18px, 2.5vw, 35px);
+
+  align-content: center;
+
+  padding:
+    clamp(90px, 10vw, 150px)
+    0;
+}
+
+.about-section--hero {
+  display: block;
+
+  min-height: 100vh;
+
+  padding-top: clamp(120px, 15vh, 180px);
+  padding-bottom: clamp(100px, 12vh, 160px);
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+.about-section__eyebrow,
+.about-section__label {
+  color: #0096a7;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.14em;
+
+  font-size: clamp(0.62rem, 0.7vw, 0.75rem);
+
+  font-weight: 700;
+}
+
+.about-section__eyebrow {
+  display: inline-block;
+
+  margin-bottom: clamp(25px, 3vw, 40px);
+}
+
+.about-section h1 {
+  width: 100%;
+  max-width: 800px;
+
+  margin: 0;
+
+  font-size: clamp(3rem, 5vw, 6.5rem);
+
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
+
+  font-weight: 700;
+}
+
+.about-section h1 span {
+  color: #0096a7;
+}
+
+.about-section h2 {
+  width: 100%;
+  max-width: 680px;
+
+  margin: 0 0 28px;
+
+  font-size: clamp(2rem, 3.2vw, 3.8rem);
+
+  line-height: 1.02;
+
+  letter-spacing: -0.045em;
+}
+
+.about-section p {
+  width: 100%;
+  max-width: 650px;
+
+  margin: 0 0 22px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: clamp(0.95rem, 1vw, 1.08rem);
+
+  line-height: 1.8;
+}
+
+.about-section p strong {
+  color: #ffffff;
+}
+
+/* =========================================================
+   HERO PARAGRAPH
+   ========================================================= */
+
+.about-section--hero p {
+  max-width: 580px;
+
+  margin-top: clamp(32px, 4vw, 55px);
+}
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.about-section__number {
+  align-self: start;
+
+  padding-top: 6px;
+
+  color: #0096a7;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.1em;
+}
+
+/* =========================================================
+   ROLE
+   ========================================================= */
+
+.about-section__role {
+  color: #0096a7 !important;
+
+  font-size: 0.82rem !important;
+
+  font-weight: 700;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.1em;
+
+  margin-top: -8px !important;
+}
+
+/* =========================================================
+   STATEMENT
+   ========================================================= */
+
+.about-section--statement blockquote {
+  width: 100%;
+  max-width: 650px;
+
+  margin: 0 0 35px;
+
+  padding-left: clamp(18px, 2vw, 28px);
+
+  border-left: 2px solid #0096a7;
+
+  color: #ffffff;
+
+  font-size: clamp(1.7rem, 2.5vw, 3rem);
+
+  line-height: 1.18;
+
+  letter-spacing: -0.03em;
+}
+
+/* =========================================================
+   CLOSING
+   ========================================================= */
+
+.about-section--closing {
+  padding-bottom: 180px;
+}
+
+.about-section__final {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-top: 50px;
+
+  font-size: clamp(1.8rem, 3vw, 3.5rem);
+
+  line-height: 1.05;
+
+  letter-spacing: -0.04em;
+}
+
+.about-section__final span:nth-child(2) {
+  color: #0096a7;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  .about-page__visual {
+    width: 38%;
+  }
+
+  .about-page__content {
+    width: 62%;
+
+    margin-left: 38%;
+
+    padding-left: 35px;
+    padding-right: 45px;
+  }
+
+  .about-page__portrait {
+    width: 30vw;
+    height: 60vh;
+  }
+
+  .about-section {
+    grid-template-columns: 35px minmax(0, 1fr);
+
+    gap: 20px;
+
+    max-width: 700px;
+  }
+
+  .about-section h1 {
+    font-size: clamp(2.8rem, 6vw, 5rem);
+  }
+
+  .about-section h2 {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+  }
+
+  .about-section p {
+    max-width: 580px;
+
+    font-size: 0.98rem;
+  }
+}
+
+/* =========================================================
+   SMALL TABLET / LARGE PHONE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .about-page__visual {
+    width: 100%;
+
+    opacity: 0.13;
+  }
+
+  .about-page__portrait {
+    width: min(72vw, 430px);
+
+    height: 70vh;
+  }
+
+  .about-page__content {
+    width: 100%;
+
+    margin-left: 0;
+
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .about-section {
+    width: 100%;
+    max-width: 620px;
+
+    margin: 0 auto;
+
+    min-height: 0;
+
+    display: block;
+
+    padding:
+      90px
+      0;
+  }
+
+  .about-section--hero {
+    min-height: 100svh;
+
+    padding-top: 130px;
+  }
+
+  .about-section__number {
+    margin-bottom: 25px;
+  }
+
+  .about-section h1 {
+    max-width: 600px;
+
+    font-size: clamp(2.7rem, 9vw, 4.5rem);
+
+    line-height: 0.96;
+  }
+
+  .about-section h2 {
+    max-width: 580px;
+
+    font-size: clamp(1.9rem, 7vw, 3rem);
+
+    line-height: 1.04;
+  }
+
+  .about-section p {
+    max-width: 560px;
+
+    font-size: 0.96rem;
+
+    line-height: 1.8;
+  }
+
+  .about-section--hero p {
+    max-width: 520px;
+
+    margin-top: 35px;
+  }
+
+  .about-section--statement blockquote {
+    max-width: 560px;
+
+    font-size: clamp(1.5rem, 6vw, 2.3rem);
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .about-page__visual {
+    position: fixed;
+
+    width: 100%;
+    height: 100svh;
+
+    opacity: 0.1;
+  }
+
+  .about-page__portrait {
+    width: 80vw;
+    height: 65svh;
+  }
+
+  .about-page__content {
+    width: 100%;
+
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .about-section {
+    width: 100%;
+    max-width: 520px;
+
+    padding:
+      85px
+      0;
+  }
+
+  .about-section--hero {
+    min-height: 100svh;
+
+    padding-top: 125px;
+    padding-bottom: 100px;
+  }
+
+  .about-section h1 {
+    width: 100%;
+
+    font-size: clamp(2.35rem, 11vw, 3.8rem);
+
+    line-height: 0.98;
+  }
+
+  .about-section h2 {
+    width: 100%;
+
+    font-size: clamp(1.75rem, 8vw, 2.7rem);
+
+    line-height: 1.06;
+  }
+
+  .about-section p {
+    width: 100%;
+
+    font-size: 0.94rem;
+
+    line-height: 1.78;
+  }
+
+  .about-section--hero p {
+    margin-top: 35px;
+  }
+
+  .about-section__label {
+    font-size: 0.65rem;
+  }
+
+  .about-section__role {
+    font-size: 0.72rem !important;
+
+    line-height: 1.5 !important;
+  }
+
+  .about-section--statement blockquote {
+    width: 100%;
+
+    font-size: clamp(1.4rem, 6.5vw, 2rem);
+
+    line-height: 1.2;
+  }
+
+  .about-section__final {
+    font-size: clamp(1.65rem, 8vw, 2.7rem);
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .about-page__content {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .about-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .about-section--hero {
+    padding-top: 110px;
+  }
+
+  .about-section h1 {
+    font-size: 2.25rem;
+  }
+
+  .about-section h2 {
+    font-size: 1.7rem;
+  }
+
+  .about-section p {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================================
+   STACKS & LANGUAGES
+   ========================================================= */
+
+.about-stack__accent {
+  color: #0096a7;
+}
+
+.about-stack {
+  width: 100%;
+  max-width: 650px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+
+  margin-top: 45px;
+}
+
+.about-stack__group {
+  padding-bottom: 25px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about-stack__title {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: #0096a7;
+
+  font-size: 0.68rem;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+}
+
+.about-stack__items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.about-stack__items span {
+  display: inline-flex;
+  align-items: center;
+
+  min-height: 38px;
+
+  padding: 8px 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 999px;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  font-size: 0.82rem;
+
+  line-height: 1.3;
+
+  white-space: normal;
+}
+
+
+/* =========================================================
+   STACKS — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .about-stack {
+    max-width: 100%;
+
+    margin-top: 38px;
+
+    gap: 26px;
+  }
+
+  .about-stack__items {
+    max-width: 100%;
+
+    gap: 8px;
+  }
+
+  .about-stack__items span {
+    max-width: 100%;
+
+    font-size: 0.76rem;
+
+    padding: 8px 11px;
+  }
+}
+/* =========================================================
+   BACK TO HOME
+   ========================================================= */
+
+.about-back-home {
+  position: fixed;
+
+  top: 30px;
+  right: 35px;
+
+  z-index: 10;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  text-decoration: none;
+
+  font-size: 0.78rem;
+  font-weight: 600;
+
+  letter-spacing: 0.04em;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.about-back-home span {
+  color: #0096a7;
+
+  font-size: 1rem;
+}
+
+.about-back-home:hover {
+  color: #ffffff;
+  transform: translateX(-3px);
+}
+
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+
+.about-page__cta {
+  margin-top: 55px;
+}
+
+.about-page__cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 15px 22px;
+
+  border: 1px solid rgba(0, 150, 167, 0.55);
+  border-radius: 999px;
+
+  background: rgba(0, 150, 167, 0.08);
+
+  color: #ffffff;
+
+  text-decoration: none;
+
+  font-size: 0.85rem;
+  font-weight: 700;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.about-page__cta-button span {
+  color: #0096a7;
+
+  font-size: 1rem;
+}
+
+.about-page__cta-button:hover {
+  background: rgba(0, 150, 167, 0.16);
+
+  border-color: #0096a7;
+
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .about-back-home {
+    top: 20px;
+    left: 22px;
+    right: auto;
+
+    padding: 8px 0;
+
+    font-size: 0.72rem;
+  }
+
+  .about-page__cta {
+    margin-top: 45px;
+  }
+
+  .about-page__cta-button {
+    padding: 14px 18px;
+
+    font-size: 0.78rem;
+  }
+}

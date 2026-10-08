@@ -69,7 +69,7 @@ function Navbar() {
             Work
           </a>
 
-          <a href="#company" onClick={closeMenu}>
+          <a href="/about" onClick={closeMenu}>
             Company
           </a>
 
